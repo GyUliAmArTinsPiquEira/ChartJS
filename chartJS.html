@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando o ChartJS</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body style="display: flex;">
+
+    <div>
+        <canvas id="myChart" style="position: relative; width: 40vw; height: 40vh;"></canvas> 
+        <!-- -tag canvas: tela em branco para colocarmos os gráficos -->
+    </div>
+
+    <div>
+        <canvas id="myChart2" style="position: relative; width: 40vw; height: 40vh;"></canvas> 
+        <!-- -tag canvas: tela em branco para colocarmos os gráficos -->
+    </div>
+
+</body>
+<script>
+    const ctx = document.getElementById('myChart');
+  
+    const chartGrafico = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+        datasets: [
+        {
+          label: 'Temperatura',
+          data: [30, 29, 28, 25, 22, 23],
+          borderColor: 'rgba(255,109,158)',
+          backgroundColor:  'rgba(255,109,158)',
+          borderWidth: 3,
+        },
+        
+        {
+          label: 'Umidade',
+          data: [80, 82, 80, 85, 80, 83],
+          borderColor: 'rgba(80,185,250)', 
+          backgroundColor: 'rgba(80,185,250)',
+          borderWidth: 3,
+        },
+    ],
+      },
+
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    //-------------------------------------------------------------------------------------------------------------------------------------------//
+
+    const ctx2 = document.getElementById('myChart2');
+    const chartGrafico2 = new Chart(ctx2, {
+      type: 'bar',
+      data: {
+        labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
+        datasets: [
+        {
+          label: 'Temperatura',
+          data: [22, 24, 27, 23, 20, 18],
+          borderColor: 'rgba(255,109,158)',
+          backgroundColor:  'rgba(255,109,158)',
+          borderWidth: 0,
+        },
+        
+        {
+          label: 'Umidade',
+          data: [90, 89, 93, 87, 88, 82],
+          borderColor: 'rgba(80,185,250)', 
+          backgroundColor: 'rgba(80,185,250)',
+          borderWidth: 0,
+        },
+    ],
+      },
+
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+
+  <!-- 
+    Labels: vetor. Onde eu tenho um pacote e em cada parte eu tenho uma informação (eixo x).
+    Const: forma de declarar variável, assim como o var. É uma constante, assim que ela é declarada, nada pode mudar.
+    Data: jason. São dados. 
+    Datasets: métricas, são as linhas ou barras do gráfico.
+   -->
+</html>
